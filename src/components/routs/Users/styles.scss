@@ -1,0 +1,29 @@
+.users-nav{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.user{
+    display: block;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+.name, .username{
+    margin: 5px;
+}
+.name span, .username span{
+    font-weight: 100;
+}
+.email{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.user-link{
+    display: inline-block;
+    font-style: oblique;
+    &:hover{
+        text-decoration: none;
+    }
+}

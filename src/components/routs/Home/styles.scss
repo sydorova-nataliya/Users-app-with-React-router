@@ -1,0 +1,13 @@
+.link-users{
+    color: rgb(103, 47, 103);
+    font-size: 20px;
+    font-weight: 500;
+    &:hover{
+        text-decoration: none;
+    }
+}
+.nav{
+    border-top: 2px solid rgb(50, 95, 180);
+    border-bottom: 2px solid rgb(50, 95, 180);
+    padding: 5px;
+}
