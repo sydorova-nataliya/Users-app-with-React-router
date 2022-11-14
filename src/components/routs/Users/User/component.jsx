@@ -4,21 +4,14 @@ import useGetData from "../../../../hooks/useGetData";
 
 import './styles.scss'
 
-const Users=()=>  {
+const User=()=>  {
 
-  let {userId} = useParams();
-  if(userId===undefined){
-    return ;
-  }
+    let {userId} = useParams();
+    console.log(userId);
     let {data, _, loading} = useGetData(`https://jsonplaceholder.typicode.com/users/${userId}`, [userId]);
     console.log(data);
     const {id, name, username,email, address:{street,suite, city, zipcode,geo:{lat, lng}},phone,website,company:{name:companyName, catchPhrase,bs}} = data;
-    if(!userId){
-      return(
-          <p>You can select "More information" in the user to get business information about this user</p>
-      )
-    }
-  
+
     return(
       <div className="info">
         <h4 className="info__title">Detailed infrormation about {name}</h4>
@@ -36,5 +29,5 @@ const Users=()=>  {
 
 
 
-export default Users;
+export default User;
 

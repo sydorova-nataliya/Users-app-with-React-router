@@ -6,6 +6,7 @@ import Users from "../../routs/Users";
 import User from "../../routs/Users/User";
 
 import './styles.scss'
+import UserIndex from "../../routs/Users/UserIndex";
 
 
 const HomePage=()=>  (
@@ -15,7 +16,7 @@ const HomePage=()=>  (
           <Route path="/" element={<Home />} >
             
             <Route path="/users" element={<Users />} >
-              <Route index element={<User />}/>
+              <Route index element={<UserIndex />}/>
               <Route path =":userId" element={<User />} />
             </Route> 
             
