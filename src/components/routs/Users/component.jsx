@@ -1,20 +1,19 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet} from "react-router-dom";
 
 import useGetData from "../../../hooks/useGetData";
-
 import './styles.scss'
 
 const Users=()=>  {
-  let data = useGetData('https://jsonplaceholder.typicode.com/users');
+  let {data, _, loading} = useGetData('https://jsonplaceholder.typicode.com/users');
 
   return(
-    <>
+  
     <nav className="users-nav">
       <div>
       {data.map(({name,username, email, id})=>(  
         <div key={id} className="user">   
-          <h3 className="name">Name: <span>{name}</span></h3>
-          <h4 className="username">Username: <span>{username}</span></h4>
+          <h3 className="name bold">Name: <span>{name}</span></h3>
+          <h4 className="username bold">Username: <span>{username}</span></h4>
           <a href="mailto" className="email">Email: {email}</a>
           <NavLink
           className="user-link"
@@ -35,7 +34,7 @@ const Users=()=>  {
       <Outlet />
     </nav>
     
-    </>
+ 
   )
 }
 
