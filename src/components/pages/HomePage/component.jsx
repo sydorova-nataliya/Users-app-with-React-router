@@ -4,13 +4,11 @@ import Home from "../../routs/Home";
 import Error from "../../routs/Error";
 import Users from "../../routs/Users";
 import User from "../../routs/Users/User";
-
-import './styles.scss'
 import UserIndex from "../../routs/Users/UserIndex";
 
+import './styles.scss'
 
 const HomePage=()=>  (
-
       <>
         <Routes>
           <Route path="/" element={<Home />} >
@@ -25,8 +23,6 @@ const HomePage=()=>  (
           <Route path="*" element={<Error />} />
         </Routes>
         </>
-
     );
 
-
-  export default HomePage;
+export default HomePage;
