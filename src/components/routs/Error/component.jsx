@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 
 import './styles.scss'
 
-const Error=()=>  {
-  return(
-    <>
+const Error=()=>(
     <main>
       <h1>Error!</h1>
       <p>404</p>
@@ -12,9 +10,7 @@ const Error=()=>  {
         <Link to='/' className="link-users">Back to Home</Link>
       </nav>
     </main>
-    </>
   )
-}
 
 
-  export default Error;
+export default Error;

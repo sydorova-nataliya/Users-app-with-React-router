@@ -7,12 +7,11 @@ import './styles.scss'
 const User=()=>  {
 
     let {userId} = useParams();
-    console.log(userId);
     let {data, _, loading} = useGetData(`https://jsonplaceholder.typicode.com/users/${userId}`, [userId]);
+
     if(loading || data.length === 0) {
       return 'Loading ...';
-  }
-    console.log(data);
+    }
     const {id, name, username,email, address:{street,suite, city, zipcode,geo:{lat, lng}},phone,website,company:{name:companyName, catchPhrase,bs}} = data;
 
     return(
@@ -29,8 +28,6 @@ const User=()=>  {
       </div>
     )
   }
-
-
 
 export default User;
 
