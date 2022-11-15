@@ -14,7 +14,7 @@ const Users=()=>  {
         <div key={id} className="user">   
           <h3 className="name bold">Name: <span>{name}</span></h3>
           <h4 className="username bold">Username: <span>{username}</span></h4>
-          <a href="mailto" className="email">Email: {email}</a>
+          <a href="mailto:" className="email">Email: {email}</a>
           <NavLink
           className="user-link"
             style={({isActive})=>{
