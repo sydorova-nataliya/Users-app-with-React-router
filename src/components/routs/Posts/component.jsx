@@ -1,9 +1,11 @@
-import React, {useState , useEffect} from 'react';
+import React, {useState } from 'react';
 import { useFormik } from 'formik';
 import { Outlet} from "react-router-dom";
 import validationSchema from '../../../helpers/Validation/validationSchema';
 
 import './styles.scss'
+import PostIndex from './PostIndex';
+
 
 const Posts=()=>  {
   const [posts , setPosts] = useState([]);
@@ -30,12 +32,13 @@ const Posts=()=>  {
     })
       .then((response) => response.json())
       .then((post) => setPosts([...posts, post]))
-      console.log(posts);
-        resetForm({values:''})
+      .catch(error=>console.log(error))
+      resetForm({values:''}) 
     },
   });
 
   return (
+    <>
     <div className='form'>
     <form onSubmit={formik.handleSubmit} className="form__holder">
       <label htmlFor="title" className='form__label'>Title: </label>
@@ -54,10 +57,9 @@ const Posts=()=>  {
       ) : null}
 
       <label htmlFor="body" className='form__label'>Body:</label>
-      <input
+      <textarea
         id="body"
         name="body"
-        type="text"
         className="form__input"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -77,6 +79,7 @@ const Posts=()=>  {
           onBlur={formik.handleBlur}
           value={formik.values.userId}
         >
+          <option value="" >Select User Id</option>
           <option value="1" label="1">1</option>
           <option value="2" label="2">2</option>
           <option value="3" label="3">3</option>
@@ -98,6 +101,19 @@ const Posts=()=>  {
     </form>
     <Outlet />
    </div>
+
+    {  
+      (posts.length>=1 ?
+          posts.map(({title, body, id, userId})=>(  
+          <div className="post" key={Math.random()*100}> 
+              <span className='post__userId'>{userId}</span>  
+              <h5 className='post__title'>{title}</h5>
+              <p className='post__body'>{body}</p>
+            </div>
+            )
+        ) : <PostIndex/>)
+    }
+   </>
   );
 };
 
