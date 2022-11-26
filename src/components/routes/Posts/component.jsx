@@ -2,9 +2,8 @@ import React, {useState } from 'react';
 import { useFormik } from 'formik';
 import { Outlet} from "react-router-dom";
 import validationSchema from '../../../helpers/Validation/validationSchema';
-
-import './styles.scss'
 import PostIndex from './PostIndex';
+import './styles.scss'
 
 
 const Posts=()=>  {
